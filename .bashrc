@@ -7,7 +7,7 @@ export LANG="en_US"
 
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
-PATH=$PATH:/Users/dheindel/Library/Python/2.7/bin:/Applications/MacVim.app/Contents/bin
+PATH=$PATH:/Users/$USER/Library/Python/2.7/bin:/Applications/MacVim.app/Contents/bin
 
 source "$(brew --prefix)/etc/bash_completion.d/git-completion.bash"
 
@@ -15,7 +15,7 @@ source "$(brew --prefix)/etc/bash_completion.d/git-completion.bash"
 powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1
-. /Users/dheindel/Library/Python/2.7/lib/python/site-packages/powerline/bindings/bash/powerline.sh
+. /Users/$USER/Library/Python/2.7/lib/python/site-packages/powerline/bindings/bash/powerline.sh
 
 
 function docker_compose_helper() {
