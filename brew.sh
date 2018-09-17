@@ -40,6 +40,9 @@ brew install node
 
 brew install python
 
+# Install dnsmasq so we can point all '*.dev.dv.io' requests to localhost
+brew install dnsmasq
+
 
 # Remove outdated versions from the cellar
 brew cleanup
