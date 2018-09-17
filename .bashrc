@@ -48,6 +48,10 @@ function parse_jwt() {
   echo $payload | base64 --decode | jq '.'
 }
 
+function set_title() {
+  echo -n -e "\033]0;${1}\007\c"
+}
+
 # z beats cd most of the time. `brew install z`
 zpath="$(brew --prefix)/etc/profile.d/z.sh"
 [ -s $zpath ] && source $zpath
@@ -58,6 +62,7 @@ alias json_pretty="python -m json.tool"
 alias godev="cd ~/development"
 alias dc="docker_compose_helper"
 alias jwt="parse_jwt"
+alias title="set_title"
 alias prov="~/development/bin/odreadprov.sh"
 
 ###
