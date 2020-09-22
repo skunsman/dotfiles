@@ -12,11 +12,17 @@ PATH=$PATH:/Users/$USER/Library/Python/2.7/bin:/Applications/MacVim.app/Contents
 source "$(brew --prefix)/etc/bash_completion.d/git-completion.bash"
 
 ## Powerline Stuff
-powerline-daemon -q
-POWERLINE_BASH_CONTINUATION=1
-POWERLINE_BASH_SELECT=1
-. /Users/$USER/Library/Python/2.7/lib/python/site-packages/powerline/bindings/bash/powerline.sh
-
+if  [ "$TERM_PROGRAM" = "vscode" ]; then
+  . ~/.git-prompt.sh
+  export GIT_PS1_SHOWDIRTYSTATE=true
+  export GIT_PS1_SHOWCOLORHINTS=true
+  export PS1='\e[0;32m./`basename \w`\e[m \e[0;36m$(__git_ps1 "%s")\e[m\n\$ '
+else
+  powerline-daemon -q
+  POWERLINE_BASH_CONTINUATION=1
+  POWERLINE_BASH_SELECT=1
+  . /Users/$USER/Library/Python/2.7/lib/python/site-packages/powerline/bindings/bash/powerline.sh
+fi
 
 function docker_compose_helper() {
   service=$1
@@ -64,6 +70,8 @@ alias dc="docker_compose_helper"
 alias jwt="parse_jwt"
 alias title="set_title"
 alias prov="~/development/bin/odreadprov.sh"
+alias unugly="npm run --prefix ~/development/wishbone-utilities/unugly unugly"
+alias getbuid="/Users/dheindel/development/wishbone-utilities/getbuid/getbuid.rb"
 
 ###
 # time to upgrade `ls`
