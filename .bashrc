@@ -54,6 +54,11 @@ function parse_jwt() {
   echo $payload | base64 --decode | jq '.'
 }
 
+
+function copy_current_branch_name() {
+  git symbolic-ref --short HEAD | tr -d '\n' | pbcopy
+}
+
 function set_title() {
   echo -n -e "\033]0;${1}\007\c"
 }
@@ -72,6 +77,9 @@ alias title="set_title"
 alias prov="~/development/bin/odreadprov.sh"
 alias unugly="npm run --prefix ~/development/wishbone-utilities/unugly unugly"
 alias getbuid="/Users/dheindel/development/wishbone-utilities/getbuid/getbuid.rb"
+alias gb="copy_current_branch_name"
+alias jkb="open https://jenkins-read.svc.overdrive.com/job/wishbone_server_deploy/build?delay=0sec"
+alias jka="open https://jenkins-read.svc.overdrive.com/job/wishbone_js_upload_to_asset_server/build?delay=0sec"
 
 ###
 # time to upgrade `ls`
