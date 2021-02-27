@@ -20,6 +20,9 @@ brew install gnu-sed --with-default-names
 # Help nav the file system
 brew install z
 
+# https://github.com/junegunn/fzf
+brew install fzf
+
 # Format JSON from the command line
 brew install jq
 
