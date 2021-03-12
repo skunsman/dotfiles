@@ -29,6 +29,7 @@
 	required = true
 [alias]
 	meld = commit -a --amend --no-edit
+        l = log --oneline
         fix = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup"
         wip = "!f() { git commit -am \"WIP - $1\" ; }; f"
         tmp = "!f() { git commit -am \"TMP - $1\" ; }; f"
