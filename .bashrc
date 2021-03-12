@@ -59,6 +59,13 @@ function copy_current_branch_name() {
   git symbolic-ref --short HEAD | tr -d '\n' | pbcopy
 }
 
+function docker_prompt_for_bash() {
+  local container=`docker ps  --format '{{.ID}} {{.Names}}' | fzf | cut -f 1 -d ' '`
+  if [ ! -z $container ]; then
+    docker exec -it $container bash
+  fi
+}
+
 function set_title() {
   echo -n -e "\033]0;${1}\007\c"
 }
@@ -83,6 +90,8 @@ alias gb="copy_current_branch_name"
 alias jkb="open https://jenkins-read.svc.overdrive.com/job/wishbone_server_deploy/build?delay=0sec"
 alias jka="open https://jenkins-read.svc.overdrive.com/job/wishbone_js_upload_to_asset_server/build?delay=0sec"
 alias myip="ipconfig getifaddr en0"
+alias dsh="docker_prompt_for_bash"
+
 
 ###
 # time to upgrade `ls`
