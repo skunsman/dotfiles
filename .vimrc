@@ -4,7 +4,7 @@ if has('gui_running')
   colorscheme solarized
 "  set guifont=SourceCodeProForPowerline-Regular:h13
   set guifont=VictorMono-Bold:h13
-else 
+else
   colorscheme delek
 endif
 
@@ -36,7 +36,9 @@ Plug 'tpope/vim-repeat'
 
 call plug#end()
 
-
+" Enable spell check for git commit messages !!!!!
+" - https://www.adamalbrecht.com/blog/2019/10/21/spell-check-in-vim-for-markdown-and-git-commit-messages/
+autocmd FileType gitcommit setlocal spell
 " autocmd VimEnter * NERDTree
 " autocmd VimEnter * wincmd p
 "
