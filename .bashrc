@@ -91,6 +91,10 @@ alias jkb="open https://jenkins-read.svc.overdrive.com/job/wishbone_server_deplo
 alias jka="open https://jenkins-read.svc.overdrive.com/job/wishbone_js_upload_to_asset_server/build?delay=0sec"
 alias myip="ipconfig getifaddr en0"
 alias dsh="docker_prompt_for_bash"
+alias wishbone="open http://wishbone.dev.dv.io"
+alias alpha="open https://soraalpha.com"
+alias beta="open https://sorabeta.com"
+alias charlie="open https://soraapp.com"
 
 
 ###
