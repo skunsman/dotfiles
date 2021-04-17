@@ -95,6 +95,8 @@ alias wishbone="open http://wishbone.dev.dv.io"
 alias alpha="open https://soraalpha.com"
 alias beta="open https://sorabeta.com"
 alias charlie="open https://soraapp.com"
+alias headers="httpstat"
+export HTTPSTAT_SAVE_BODY=false
 
 
 ###
