@@ -4,7 +4,10 @@
 [push]
 	default = current
 [pull]
+        ff = only
 	default = current
+[checkout]
+        defaultRemote = origin
 [color]
 	ui = true
 [color "diff-highlight"]
