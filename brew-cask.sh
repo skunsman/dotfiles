@@ -7,16 +7,17 @@
 
 # Install native apps
 
-brew install caskroom/cask/brew-cask
+# brew install caskroom/cask/brew-cask
 
-brew tap caskroom/versions
+# brew tap homebrew/versions
 
-brew cask install spectacle
+brew install --cask spectacle
 
-brew cask install visual-studio-code
+brew install --cask visual-studio-code
 
-brew cask install docker
+brew install --cask docker
 
-brew tap caskroom/fonts
-brew cask install font-source-code-pro-for-powerline
-brew cask install font-menlo-for-powerline
+brew tap homebrew/cask-fonts
+
+brew install --cask font-source-code-pro-for-powerline
+brew install --cask font-menlo-for-powerline
