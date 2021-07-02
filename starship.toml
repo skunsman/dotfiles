@@ -1,0 +1,12 @@
+format = """
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$ruby\
+$line_break\
+$status\
+$shell\
+$character
+"""
+

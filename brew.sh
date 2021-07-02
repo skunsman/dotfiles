@@ -53,3 +53,5 @@ brew install httpstat
 
 # Remove outdated versions from the cellar
 brew cleanup
+
+brew install starship

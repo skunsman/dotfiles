@@ -18,10 +18,6 @@ npm install -g git-recent
 # sexy git diffs
 npm install -g diff-so-fancy
 
-# Setup powerline
-pip2 install --user powerline-status
-pip2 install --user powerline-gitstatus
-
 # git completion/status?
 
 ./symlink-setup.sh

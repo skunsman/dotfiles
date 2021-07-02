@@ -18,10 +18,7 @@ if  [ "$TERM_PROGRAM" = "vscode" ]; then
   export GIT_PS1_SHOWCOLORHINTS=true
   export PS1='\e[0;32m./`basename \w`\e[m \e[0;36m$(__git_ps1 "%s")\e[m\n\$ '
 else
-  powerline-daemon -q
-  POWERLINE_BASH_CONTINUATION=1
-  POWERLINE_BASH_SELECT=1
-  . /Users/$USER/Library/Python/2.7/lib/python/site-packages/powerline/bindings/bash/powerline.sh
+  eval "$(starship init bash)"
 fi
 
 function docker_compose_helper() {

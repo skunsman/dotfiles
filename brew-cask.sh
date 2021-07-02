@@ -19,5 +19,6 @@ brew install --cask docker
 
 brew tap homebrew/cask-fonts
 
-brew install --cask font-source-code-pro-for-powerline
 brew install --cask font-menlo-for-powerline
+brew install --cask font-jetbrains-mono-nerd-font
+brew install --cask font-fira-code-nerd-font
