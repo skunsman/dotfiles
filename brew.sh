@@ -41,7 +41,7 @@ brew install git
 
 brew install node
 
-brew install python
+brew install starship
 
 # Install dnsmasq so we can point all '*.dev.dv.io' requests to localhost
 brew install dnsmasq
@@ -54,4 +54,3 @@ brew install httpstat
 # Remove outdated versions from the cellar
 brew cleanup
 
-brew install starship
