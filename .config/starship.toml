@@ -1,12 +1,21 @@
 format = """
+$hostname\
 $directory\
 $git_branch\
 $git_state\
 $git_status\
-$ruby\
 $line_break\
 $status\
 $shell\
 $character
 """
 
+[hostname]
+ssh_only = false
+
+[git_status]
+format = '([$all_status$ahead_behind]($style) )'
+stashed = ""
+modified = "📝 ${count}"
+ahead = "⬆${count}"
+behind = "⬇${count}"
