@@ -41,3 +41,7 @@ defaults write com.apple.dock wvous-br-corner -int 10
 defaults write com.apple.dock wvous-br-modifier -int 1048576
 
 
+# Key repeating in VS Code
+
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+
