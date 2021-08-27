@@ -7,19 +7,11 @@ export LANG="en_US"
 
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
-PATH=$PATH:/Users/$USER/Library/Python/2.7/bin:/Applications/MacVim.app/Contents/bin
+PATH=$PATH:/Applications/MacVim.app/Contents/bin
 
 source "$(brew --prefix)/etc/bash_completion.d/git-completion.bash"
 
-## Powerline Stuff
-if  [ "$TERM_PROGRAM" = "vscode" ]; then
-  . ~/.git-prompt.sh
-  export GIT_PS1_SHOWDIRTYSTATE=true
-  export GIT_PS1_SHOWCOLORHINTS=true
-  export PS1='\e[0;32m./`basename \w`\e[m \e[0;36m$(__git_ps1 "%s")\e[m\n\$ '
-else
-  eval "$(starship init bash)"
-fi
+eval "$(starship init bash)"
 
 function docker_compose_helper() {
   service=$1
