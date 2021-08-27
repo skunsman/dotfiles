@@ -1,0 +1,70 @@
+#!/bin/bash
+#
+# Based on: https://github.com/mislav/gh-branch/blob/main/gh-branch
+#
+#
+set -e
+
+help() {
+  cat <<EOF
+Usage: git recent
+
+Displays an interactive branch switcher that lists local branches in order
+of last commit.  The selected branch is checked out.
+
+With \`--static\`, print a non-interactive list of branches.
+
+EOF
+# You can also select multiple branches with Tab and press Ctrl-D to delete them.
+}
+
+static=
+while [ $# -gt 0 ]; do
+  case "$1" in
+  -h|--help)
+    help
+    exit 0
+    ;;
+  --static)
+    static=1
+    ;;
+  *)
+    help >&2
+    exit 1
+    ;;
+  esac
+  shift
+done
+
+branch_info() {
+  git for-each-ref 'refs/heads/**' --format='%(refname:short)%09%(committerdate:unix)%09%(committerdate:relative)%09%(HEAD)%09%(contents:subject)'
+}
+
+render() {
+  local branch timeago current
+  branch_info | sort -k2 -r | while IFS=$'\t' read -r branch _ timeago current subject; do
+    printf "%.30s\t%s\t%s\t%s\n" "$branch" "$timeago" "$current" "$subject"
+  done | tableize
+}
+
+tableize() {
+  column -t -s$'\t'
+}
+
+if [ -n "$static" ]; then
+  render
+  exit 0
+fi
+
+if ! type -p fzf >/dev/null; then
+  echo "error: install \`fzf\` to use this command" >&2
+  exit 1
+fi
+
+choose() {
+  render | fzf --ansi #--multi --bind "ctrl-d:execute-silent(git branch -D {+1})+reload(\"$0\" --static)"
+}
+
+selected="$(choose)"
+[ -n "$selected" ] || exit 1
+git checkout "${selected%% *}"
