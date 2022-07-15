@@ -34,8 +34,14 @@
 	meld = commit -a --amend --no-edit
         l = log --oneline
         st = stash save
-        fix = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup"
+        delete-tag = push --delete origin
+        fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup"
         wip = "!f() { git commit -am \"WIP - $1\" ; }; f"
         tmp = "!f() { git commit -am \"TMP - $1\" ; }; f"
+        fix = "!f() { git commit -am \"FIX - $1\" ; }; f"
 [rebase]
 	autosquash = true
+[init]
+	defaultBranch = live
+[credential]
+	helper = osxkeychain
