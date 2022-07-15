@@ -39,6 +39,7 @@ call plug#end()
 " Enable spell check for git commit messages !!!!!
 " - https://www.adamalbrecht.com/blog/2019/10/21/spell-check-in-vim-for-markdown-and-git-commit-messages/
 autocmd FileType gitcommit setlocal spell
+autocmd FileType markdown setlocal spell
 " autocmd VimEnter * NERDTree
 " autocmd VimEnter * wincmd p
 "
