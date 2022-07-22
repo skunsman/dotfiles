@@ -46,10 +46,12 @@ brew install starship
 # Install dnsmasq so we can point all '*.dev.dv.io' requests to localhost
 brew install dnsmasq
 
-# Show timing and headers for an HTTP request 
+# Show timing and headers for an HTTP request
 # - https://github.com/reorx/httpstat
 brew install httpstat
 
+# To access OD container registry
+brew install azure-cli
 
 # Remove outdated versions from the cellar
 brew cleanup
