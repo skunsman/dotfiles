@@ -8,6 +8,7 @@ export LANG="en_US"
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 PATH=$PATH:/Applications/MacVim.app/Contents/bin
+PATH="/usr/local/opt/ruby@2.7/bin:$PATH"
 
 source "$(brew --prefix)/etc/bash_completion.d/git-completion.bash"
 
