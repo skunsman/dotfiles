@@ -6,6 +6,7 @@ export LC_ALL="en_US.UTF-8"
 export LANG="en_US"
 
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 PATH=$PATH:/Applications/MacVim.app/Contents/bin
 PATH="/usr/local/opt/ruby@2.7/bin:$PATH"
@@ -100,7 +101,7 @@ if gls --color > /dev/null 2>&1; then colorflag="--color"; else colorflag="-G"; 
 export CLICOLOR_FORCE=1
 
 # ls options: A = include hidden (but not . or ..), F = put `/` after folders, h = byte unit suffixes
-alias ls='gls -Fh ${colorflag} --group-directories-first'
+alias ls='gls -Fh ${colorflag}'
 alias lsd='ls -l | grep "^d"' # only directories
 #    `la` defined in .functions
 ###
