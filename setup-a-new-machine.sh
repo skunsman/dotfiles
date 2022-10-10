@@ -1,12 +1,13 @@
 #!/bin/bash
 
 echo "Change default shell to bash..."
-
 chsh -s /bin/bash
 
 echo "Installing homebrew..."
-
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+
+echo "Add homebrew to PATH..."
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 echo "Install homebrew packages..."
 ./brew.sh
