@@ -1,5 +1,9 @@
 #!/bin/bash
 
+echo "Change default shell to bash..."
+
+chsh -s /bin/bash
+
 echo "Installing homebrew..."
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
