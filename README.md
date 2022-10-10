@@ -11,7 +11,6 @@
 - Git helpers (git open, git recent, prettier diffs)
 - Git autocomplete
 - VS Code (w/ user settings) (cask)
-- VS Code extensions
 - Spectacle (window management) (cask)
 - Bashrc stuff
 - Global git config/ignore
