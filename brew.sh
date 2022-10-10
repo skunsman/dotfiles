@@ -35,8 +35,7 @@ brew install bash
 # brew install homebrew/completions/brew-cask-completion
 
 # Install more recent versions of some OS X tools
-brew install vim
-
+# brew install vim
 brew install macvim
 
 brew install git
