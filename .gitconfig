@@ -31,6 +31,7 @@
 	process = git-lfs filter-process
 	required = true
 [alias]
+        s = show --format='%C(blue bold)commit %H %C(green)%d%Creset%nAuthor: %an%nDate: %aD%n%n%B'
 	meld = commit -a --amend --no-edit
         l = log --oneline
         st = stash save
