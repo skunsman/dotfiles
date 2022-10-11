@@ -54,6 +54,9 @@ brew install httpstat
 # To access OD container registry
 brew install azure-cli
 
+# GitHub Cli
+brew install gh
+
 # Remove outdated versions from the cellar
 brew cleanup
 
