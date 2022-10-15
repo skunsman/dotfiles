@@ -9,6 +9,7 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 PATH=$PATH:/Applications/MacVim.app/Contents/bin
+PATH=$PATH:~/development/dotfiles/bin
 PATH="/usr/local/opt/ruby@2.7/bin:$PATH"
 
 source "$(brew --prefix)/etc/bash_completion.d/git-completion.bash"

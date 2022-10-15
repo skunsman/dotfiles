@@ -43,7 +43,7 @@ branch_info() {
 render() {
   local branch timeago current
   branch_info | sort -k2 -r | while IFS=$'\t' read -r branch _ timeago current subject; do
-    printf "%.30s\t%s\t%s\t%s\n" "$branch" "$timeago" "$current" "$subject"
+    printf "\e[1;34m%s\e[0m\t\e[32m%s\e[0m\t%s\t%s\n" "$branch" "$timeago" "$current" "$subject"
   done | tableize
 }
 
