@@ -40,6 +40,7 @@
         wip = "!f() { git commit -am \"WIP - $1\" ; }; f"
         tmp = "!f() { git commit -am \"TMP - $1\" ; }; f"
         fix = "!f() { git commit -am \"FIX - $1\" ; }; f"
+        todo = "!f() { git commit -am \"TODO - $1\" ; }; f"
 [rebase]
 	autosquash = true
 [init]
