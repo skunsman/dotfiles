@@ -1,0 +1,46 @@
+#!/bin/bash
+#
+#
+set -e
+
+help() {
+  cat <<EOF
+Usage: git history
+
+Displays the history for a given file.  You can enter part of the name
+and an interactive file list will let you pick which file you want to 
+see this history for.
+
+EOF
+# You can also select multiple branches with Tab and press Ctrl-D to delete them.
+}
+
+tracked_files() {
+  git ls-files
+}
+
+
+render() {
+#  local branch timeago current
+  # tracked_files | sort -k2 -r | while IFS=$'\t' read -r branch _ timeago current subject; do
+  tracked_files | while IFS=$'\t' read -r file ; do
+    printf "\e[1;34m%s\e[0m\n" "$file"
+  done | tableize
+}
+
+tableize() {
+  column -t -s$'\t'
+}
+
+if ! type -p fzf >/dev/null; then
+  echo "error: install \`fzf\` to use this command" >&2
+  exit 1
+fi
+
+choose() {
+  render | fzf --ansi 
+}
+
+selected="$(choose)"
+[ -n "$selected" ] || exit 1
+git log --oneline -- "${selected%% *}"
