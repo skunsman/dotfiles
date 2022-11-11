@@ -1,0 +1,43 @@
+#!/bin/bash
+#
+#
+set -e
+
+help() {
+  cat <<EOF
+Usage: git af
+
+Stage a file.  An interactive file list will let you pick from all
+modified files.
+
+EOF
+# You can also select multiple branches with Tab and press Ctrl-D to delete them.
+}
+
+modified_files() {
+  git ls-files -m
+}
+
+
+render() {
+  modified_files | while IFS=$'\t' read -r file ; do
+    printf "\e[1;34m%s\e[0m\n" "$file"
+  done | tableize
+}
+
+tableize() {
+  column -t -s$'\t'
+}
+
+if ! type -p fzf >/dev/null; then
+  echo "error: install \`fzf\` to use this command" >&2
+  exit 1
+fi
+
+choose() {
+  render | fzf --ansi --header="Select files to stage" --multi
+}
+
+selected="$(choose)"
+[ -n "$selected" ] || exit 1
+git add $selected
