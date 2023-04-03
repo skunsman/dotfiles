@@ -1,6 +1,6 @@
 [user]
-	name = Derrick Heindel
-	email = dheindel@overdrive.com
+	name = Scott Kunsman
+	email = skunsman@overdrive.com
 [push]
 	default = current
 [pull]
@@ -24,7 +24,7 @@
 	whitespace = red reverse
 [core]
 	pager = diff-so-fancy | less --tabs=4 -RFX
-	excludesfile = /Users/dheindel/.gitignore_global
+	excludesfile = /Users/skunsman/.gitignore_global
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
