@@ -4,6 +4,7 @@ $directory\
 $git_branch\
 $git_state\
 $git_status\
+${custom.aws_sso_hours}\
 $line_break\
 $status\
 $shell\
@@ -21,3 +22,13 @@ stashed = ""
 modified = "📝 ${count}"
 ahead = "⬆${count}"
 behind = "⬇${count}"
+
+[aws] 
+# format = '$symbol$duration'
+expiration_symbol = "⛈️"
+
+[custom.aws_sso_hours]
+command = 'aws_sso_hours'
+format = '[$output]($style)'
+shell = 'bash'
+when = true

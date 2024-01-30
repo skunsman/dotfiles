@@ -16,6 +16,20 @@ source "$(brew --prefix)/etc/bash_completion.d/git-completion.bash"
 
 eval "$(starship init bash)"
 
+function aws_sso_hours {
+  AWS_SSO_EXPIRES_AT=`ls --color=never -1tr ~/.aws/sso/cache/*.json | grep -v boto | tail -n 1 | xargs cat | jq '.expiresAt' | sed -e 's/\"//g'`
+  AWS_SSO_EPOCH=`date -ju -f "%FT%TZ" "$AWS_SSO_EXPIRES_AT" '+%s'`
+  AWS_SSO_HOURS=`expr $(expr $AWS_SSO_EPOCH - $(date '+%s')) / 3600`
+
+  if [ $AWS_SSO_HOURS -lt "0" ]; then
+   echo -ne "⛈️"
+  else
+    echo -ne "🌤️"
+  fi
+}
+
+export -f aws_sso_hours
+
 function docker_compose_helper() {
   service=$1
   shift
