@@ -36,7 +36,7 @@
         l = log --oneline
         st = stash save
         delete-tag = push --delete origin
-        fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup"
+        fixup = !bash -c 'git log -n 50 --pretty=format:\"%h %s\" --no-merges | fzf | cut -c -7 | xargs -o git commit \"$@\" --fixup' -
         wip = "!f() { git commit -am \"WIP - $1\" ; }; f"
         tmp = "!f() { git commit -am \"TMP - $1\" ; }; f"
         fix = "!f() { git commit -am \"FIX - $1\" ; }; f"
